@@ -1,0 +1,117 @@
+﻿<Window x:Class="_7899.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_7899"
+        mc:Ignorable="d"
+        Title="TX2.1" Height="500" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="QUẢN LÍ THÔNG TIN NHÂN VIÊN"
+               Grid.ColumnSpan="2"
+               FontSize="40"
+               Foreground="blue"
+               HorizontalAlignment="Center"/>
+        <Border Grid.Column="0" Grid.Row="1" 
+                Grid.RowSpan="7" Grid.ColumnSpan="2"
+                BorderBrush="green" BorderThickness="2"
+                Background="Beige"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="MÃ NHÂN VIÊN" FontSize="15"
+               Style="{StaticResource labelStyle}"/>
+        <TextBox x:Name="txtMaNhanVien" Grid.Row="1" Grid.Column="1"
+                 Style="{StaticResource textBoxStyle}"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="HỌ TÊN" FontSize="15"
+               Style="{StaticResource labelStyle}"/>
+        <TextBox x:Name="txtHoTen" Grid.Row="2" Grid.Column="1"
+                 Style="{StaticResource textBoxStyle}"
+                 Width="350"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="NGÀY SINH" FontSize="15"
+               Style="{StaticResource labelStyle}"/>
+        <DatePicker x:Name="dpNgaySinh" Grid.Row="3" Grid.Column="1"
+                    Margin="10,10,10,0"
+                    HorizontalAlignment="Left"
+                    Height="25"
+                    Width="200"
+                    SelectedDate="1-1-2000"
+                    />
+
+        <Label Grid.Row="4" Grid.Column="0" Content="GIỚI TÍNH" FontSize="15"
+               Style="{StaticResource labelStyle}"/>
+        <StackPanel Grid.Row="4" Grid.Column="1"
+                    Margin="10,10,10,0"
+                    Orientation="Horizontal">
+            <RadioButton x:Name="radNam" VerticalAlignment="Center"
+                         IsChecked="True">Nam</RadioButton>
+            <RadioButton x:Name="radNu" Margin="20,0,0,0" VerticalAlignment="Center">Nữ</RadioButton>
+        </StackPanel>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="PHÒNG BAN" FontSize="15"
+               Style="{StaticResource labelStyle}"/>
+        <ComboBox Name="cboPhongBan" Grid.Row="5" Grid.Column="1"
+                  Margin="10,10,10,0"
+                  HorizontalAlignment="Left"
+                  Width="350">
+            <ComboBoxItem IsSelected="True">Kế Hoạch</ComboBoxItem>
+            <ComboBoxItem>Tổ Chức</ComboBoxItem>
+            <ComboBoxItem>Vật Tư</ComboBoxItem>
+        </ComboBox>
+
+        <Label Grid.Row="6" Grid.Column="0" Content="HỆ SỐ LƯƠNG" FontSize="15"
+               Style="{StaticResource labelStyle}"/>
+        <TextBox x:Name="txtHeSoluong" Grid.Row="6" Grid.Column="1"
+                 Style="{StaticResource textBoxStyle}"/>
+
+        <DataGrid x:Name="dt" Grid.Row="7" Grid.Column="0"
+                  Grid.ColumnSpan="2" Margin="10,10,10,10"
+                  AutoGenerateColumns="False"
+                  ColumnHeaderStyle="{StaticResource x}">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Mã Nhân Viên" Binding="{Binding MaNV}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Họ Tên" Binding="{Binding HoTen}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Giới Tính" Binding="{Binding GioiTinh}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Phòng Ban" Binding="{Binding PhongBan}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ngày Sinh" Binding="{Binding NgaySinh,StringFormat=dd/MM/yyyy}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tuổi" Binding="{Binding tuoi}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="8" Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button x:Name="btnNhap" Margin="10"
+                    Height="30"
+                    Width="50"
+                    Click="btnNhap_Click"
+                    Template="{StaticResource btnNhap}"
+                    Foreground="Green"
+                    FontWeight="Bold">NHẬP</Button>
+            <Button x:Name="btnWin" Margin="10"
+                    Style="{StaticResource btnWindow2}"
+                    Foreground="green"
+                    FontWeight="Bold"
+                    Background="Yellow"
+                    Click="btnWin1">WINDOW 2</Button>
+        </StackPanel>
+        
+
+
+    </Grid>
+</Window>
